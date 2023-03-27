@@ -11,7 +11,7 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div class="container-fluid">
-            <a class="navbar-brand" href="#">SPTV21WebLibrary</a>
+            <a class="navbar-brand" href="index.jspf">SPTV21WebLibrary</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -24,8 +24,8 @@
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="addBook">Добавить книгу</a></li>
                     <li><a class="dropdown-item" href="listBooks">Список книг</a></li>
-                    <li><a class="dropdown-item" href="#">Выдать книгу</a></li>
-                    <li><a class="dropdown-item" href="#">Вернуть книгу</a></li>
+                    <li><a class="dropdown-item" href="takeOnBook">Выдать книгу</a></li>
+                    <li><a class="dropdown-item" href="returnBook">Вернуть книгу</a></li>
                    
                   </ul>
                 </li>

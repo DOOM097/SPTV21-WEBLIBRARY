@@ -11,6 +11,7 @@
            <c:forEach var="book" items="${listBooks}">
             <div class="card m-2" style="width: 13rem;">
                 <div class="card-body">
+                    <img width="170px" src="insertFile/${book.cover.url}">
                     <h5 class="card-title">${book.bookName}</h5>
                     <p class="card-text">Авторы: 
                          <c:forEach var="author" items="${book.authors}">

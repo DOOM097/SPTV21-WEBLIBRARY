@@ -6,14 +6,19 @@
  */
 package servlets;
 
+import entity.Book;
 import entity.Reader;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import session.HistoryFacade;
 import session.ReaderFacade;
 
 /**
@@ -30,6 +35,7 @@ import session.ReaderFacade;
 public class ReaderServlets extends HttpServlet {
     
     @EJB ReaderFacade readerFacade;
+    @EJB HistoryFacade historyFacade;
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -62,7 +68,13 @@ public class ReaderServlets extends HttpServlet {
                 request.getRequestDispatcher("/index.jsp").forward(request, response);
                 break;
             case "/listReaders":
-                request.setAttribute("listReaders", readerFacade.findAll());
+                Map<Reader, List<Book>> mapReaders = new HashMap();
+                List<Reader> listReaders = readerFacade.findAll();
+                for (int i = 0; i < listReaders.size(); i++) {
+                    Reader r = listReaders.get(i);
+                    mapReaders.put(r, historyFacade.getReadingBook(r)); 
+                }
+                request.setAttribute("mapReaders", mapReaders);
                 request.getRequestDispatcher("/WEB-INF/readers/listReaders.jsp").forward(request, response);
                 break;
         }

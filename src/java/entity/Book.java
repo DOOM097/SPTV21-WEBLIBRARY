@@ -26,6 +26,7 @@ public class Book implements Serializable{
     private List<Author> authors;
     private int publishedYear;
     private int quantity;
+    private Cover cover;
 
     public Book() {
         authors = new ArrayList<>();
@@ -38,6 +39,7 @@ public class Book implements Serializable{
     public void setId(Long id) {
         this.id = id;
     }
+    
     public String getBookName() {
         return bookName;
     }
@@ -83,7 +85,16 @@ public class Book implements Serializable{
                 + ", authors=" + Arrays.toString(authors.toArray())
                 + ", publishedYear=" + publishedYear 
                 + ", quantity=" + quantity 
+                + ", cover=" + cover.getUrl()
                 + '}';
+    }
+
+    public Cover getCover() {
+        return cover;
+    }
+
+    public void setCover(Cover cover) {
+        this.cover = cover;
     }
 
     
